@@ -21,14 +21,17 @@ app.get('/' ,async(req ,res)=>{
 
 const startServer = async () =>{
     try{
-        connectDB("mongodb+srv://ayushankit97:N7tZ7aU5M7e0fdgj@cluster0.rl6iuzq.mongodb.net/pino?retryWrites=true&w=majority") 
+        connectDB(process.env.MONGODB_URL) 
     }catch(error){
         console.log(err) ;
     }
     app.listen(8080,()=>{
         console.log('Server started on https://localhost:8080')
+        //was storing .env variables as  : instead of =
+        console.log(process.env.MONGODB_URL) ; 
     }) ; 
 
 }
+
  
 startServer();
