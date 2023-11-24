@@ -9,10 +9,10 @@ dotenv.config();
 const router = express.Router();
 
 cloudinary.config({
-  cloud_name: process.env.cloud_name,
-  api_key:process.env.api_key,
-  api_secret:process.env.api_secret,
-  //secure:true
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key:process.env.CLOUDINARY_API_KEY,
+  api_secret:process.env.CLOUDINARY_API_SECRET,
+  secure:true
 });
 
 const opts = {
@@ -30,7 +30,7 @@ router.route('/').get(async (req, res ,next) => {
   } catch (err) {
     res.status(500).json({ success: false, message: 'Fetching posts failed, please try again' });
   }
-  //next() ; 
+  //next() ;   
 });
 
 router.route('/').post(async (req, res) => {
@@ -38,9 +38,9 @@ router.route('/').post(async (req, res) => {
     const { name, prompt, photo } = req.body;
 
     
-    const photoUrl = await cloudinary.uploader.upload(photo,opts);  
+    const photoUrl = await cloudinary.uploader.upload(photo,{upload_preset:uploadPreset});  
 
-    const newPost = await Post.create({
+    const newPost = await Post.create({  
       name,
       prompt,
       photo: photoUrl.url,
