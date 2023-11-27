@@ -11,14 +11,15 @@ const NavBar = ({show}) => {
     </img>
     <ul>
         <li>
-          <Link to='/'>Home</Link>  
+          <Link to='/'>HOME</Link>  
         </li>
 
         <li>
-          <Link to='/create-image'>Create Image</Link>  
+          <Link to='/create-post'>Create Image</Link>  
         </li>
+        
         <li>
-          <Link to='/about-us'>About Us</Link>  
+          <Link to='/gallery'>GALLERY</Link>  
         </li>
     </ul>
    </div>

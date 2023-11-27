@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { Container,SearchInput } from './styles';
+import { useEffect, useRef, useState } from "react";
 
 const FormField = ({
   labelName,
@@ -11,7 +13,18 @@ const FormField = ({
   handleChange,
   isSurpriseMe,
   handleSurpriseMe,
-}) => (
+}) =>  
+
+{
+  const targetRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const showSearchInput = isHovered || isFocused;
+  
+  
+  return(
+
+  
   <div>
     <div className="flex items-center gap-2 mb-2">
       <label
@@ -41,6 +54,6 @@ const FormField = ({
       required
     />
   </div>
-);
+)};
 
 export default FormField;

@@ -10,8 +10,8 @@ import { motion  ,AnimatePresence ,useTransform , useScroll , useSpring } from '
 import { Card, FormField, Loader } from '../components';
 
 import classes from '../css/bt.css'
-import './'
 
+import Search from '../components/Search';
 
 import { slideAnimation ,headContainerAnimation , fadeAnimation , headTextAnimation , headContentAnimation , transition  ,DrawOutlineButton } from '../components/motion';
 
@@ -104,6 +104,7 @@ const Home = () => {
           value={searchText}
           handleChange={handleSearchChange}
         />
+        
       </motion.div>
 
       <div className="mt-10">

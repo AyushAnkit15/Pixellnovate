@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -70,13 +71,13 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 body{
   box-sizing: border-box; 
    margin:0;
    padding: 0;
    font-family: 'Roboto' ,sans-serif;
    color: #eaecef;
+   
 }
 header{
   padding: 30px; 
@@ -95,6 +96,7 @@ header{
 }
 .sidenav.active{
   left:0 ; 
+  position: relative;
  
 }
 
@@ -139,3 +141,9 @@ header svg{
   color: #c9c9c9;
 
 }
+.icon{
+  position: absolute;
+  top: 3px;
+  ;
+}
+
