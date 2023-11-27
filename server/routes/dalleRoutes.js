@@ -28,9 +28,9 @@ router.post('/' ,(async (req , res)=>{
             response_format : 'b64_json'  
         })
 
-        const image = aiResponse.data[0].b64_json;
+        const image = aiResponse.data[0].b64_json;  
 
-        res.status(200).json({photo:image}) ; 
+        res.status(200).json({photo:image}) ;  
     }catch(err){
         console.log(err) ; 
         res.status(500).send(error?.response.data.error.message)

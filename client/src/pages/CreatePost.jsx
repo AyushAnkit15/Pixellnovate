@@ -5,6 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
 import { FormField, Loader } from "../components";
+import { motion  ,AnimatePresence  ,useScroll  ,useSpring  ,useTransform} from 'framer-motion';
+import classes from '../css/bt.css'
+import AnimationControls from "../components/AnimationControls";
+
+
+
+import { slideAnimation ,headContainerAnimation , fadeAnimation , headTextAnimation , headContentAnimation , transition ,DrawOutlineButton} from '../components/motion';
 const CreatePost = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -12,6 +19,10 @@ const CreatePost = () => {
     prompt: "",
     photo: "",
   });
+
+  
+   
+  
 
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -85,16 +96,16 @@ alert(err);
     }
   };
   return (
-    <section>
-      <div>
+    <motion.section   >
+      <motion.div {...headTextAnimation}>
         <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
         <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
           Generate an imaginative image through DALL-E AI and share it with the
           community
         </p>
-      </div>
+      </motion.div >
       <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-5">
+        <motion.div className="flex flex-col gap-5" {...slideAnimation('right')}>
           <FormField
             labelName="Your Name"
             type="text"
@@ -114,12 +125,12 @@ alert(err);
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
           />
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
+          <motion.div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center"  {...headContentAnimation} >
             {form.photo ? (
-              <img
+              <motion.img
                 src={form.photo}
                 alt={form.prompt}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain "  
               />
             ) : (
               <img
@@ -134,32 +145,40 @@ alert(err);
                 <Loader />
               </div>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="mt-5 flex gap-5">
-          <button
+        <motion.div className="mt-5 flex gap-5 ">
+
+         
+          <motion.button  whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95, rotate: "2.5deg" }}
+          
             type="button"
             onClick={generateImage}
             className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
             {generatingImg ? "Generating..." : "Generate"}
-          </button>
-        </div>
-        <div className="mt-10">
+          </motion.button>
+        </motion.div>
+        <motion.div className="mt-10  bg-slate-900  grid min-h-[200px] place-content-center bg-slate-900 p-4"   {...headTextAnimation} >
           <p className="mt-2 text-[#666e75] text-[14px]">
             ** Once you have created the image you want, you can share it with
             others in the community **
           </p>
-          <button
+          <DrawOutlineButton whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95, rotate: "2.5deg" }}
+          
             type="submit"
             className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
             {loading ? "Sharing..." : "Share with the Community"}
-          </button>
-        </div>
+          </DrawOutlineButton>
+
+          
+        </motion.div>
       </form>
-    </section>
+    </motion.section>
   );
 };
 

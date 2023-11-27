@@ -40,3 +40,102 @@
 .read-the-docs {
   color: #888;
 }
+
+.img{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+}
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px){
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .responsive {
+    width: 100%;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+body{
+  box-sizing: border-box; 
+   margin:0;
+   padding: 0;
+   font-family: 'Roboto' ,sans-serif;
+   color: #eaecef;
+}
+header{
+  padding: 30px; 
+  background: #011627;
+  height: 40px;
+}
+.sidenav{
+  width: 240px;
+  background: #011627;
+  position: absolute;
+  height: 95vh;
+  padding: 0 30px ;
+  left: -100%;
+  transition: all 0.3s;
+
+}
+.sidenav.active{
+  left:0 ; 
+ 
+}
+
+.logo{
+ width: 60px; 
+}
+ul{
+  padding:0;
+
+}
+ul li{
+  list-style-type: none;
+  margin: 10px 0 ;
+  
+  
+
+}
+
+ul li a{
+  color: #eaecef;
+  text-decoration: none; 
+  font-size: 16px;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+ul li a:hover,
+
+
+ul li a.active{
+  background: #172b4d;
+}
+header svg{
+  font-size:40px;
+}
+.main{
+  height: 90vh; 
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  font-size: 40px;
+  color: #c9c9c9;
+
+}
